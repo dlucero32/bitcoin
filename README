@@ -1,0 +1,9 @@
+bitcoin
+=======
+allet wallet = new Wallet(params);
+wallet.addKey(new ECKey());
+BlockChain chain = new BlockChain(params, wallet, ...);
+PeerGroup peerGroup = new PeerGroup(params, chain);
+peerGroup.addWallet(wallet);
+peerGroup.startAndWait();
+1YLGZYVTof7DDGF2Wdm2sFyaKs4io9Zyj
