@@ -1,9 +1,16 @@
 bitcoin
 =======
-allet wallet = new Wallet(params);
+Wallet wallet = new Wallet(params);
 wallet.addKey(new ECKey());
 BlockChain chain = new BlockChain(params, wallet, ...);
 PeerGroup peerGroup = new PeerGroup(params, chain);
 peerGroup.addWallet(wallet);
 peerGroup.startAndWait();
 1YLGZYVTof7DDGF2Wdm2sFyaKs4io9Zyj
+boolean chainExistedAlready = chainFile.exists();
+blockStore = new SPVBlockStore(params, chainFile);
+if (!chainExistedAlready) {
+    File checkpointsFile = new File("checkpoints");    // Replace path to the file here.
+    FileInputStream stream = new FileInputStream(checkpointsFile);
+    CheckpointManager.checkpoint(params, stream, blockStore, wallet.getEarliestKeyCreationTime());
+}
