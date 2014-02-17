@@ -14,3 +14,5 @@ if (!chainExistedAlready) {
     FileInputStream stream = new FileInputStream(checkpointsFile);
     CheckpointManager.checkpoint(params, stream, blockStore, wallet.getEarliestKeyCreationTime());
 }
+©®™@D3200D
+
